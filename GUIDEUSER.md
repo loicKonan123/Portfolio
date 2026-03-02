@@ -134,10 +134,8 @@ npm run dev    # → http://localhost:3000
 
 ### Identifiants admin (par défaut)
 
-```
-Email    : devalinloic@gmail.com
-Password : Admin123!
-```
+> Les identifiants sont configurés via les variables `AdminEmail` et `AdminPassword` dans `appsettings.json`.
+> Ne jamais committer de mot de passe en clair dans un repo public.
 
 ---
 
