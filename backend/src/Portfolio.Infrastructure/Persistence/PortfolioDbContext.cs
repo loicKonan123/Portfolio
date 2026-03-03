@@ -12,6 +12,7 @@ public class PortfolioDbContext : DbContext
     public DbSet<Skill> Skills => Set<Skill>();
     public DbSet<Message> Messages => Set<Message>();
     public DbSet<AdminUser> AdminUsers => Set<AdminUser>();
+    public DbSet<SiteProfile> SiteProfiles => Set<SiteProfile>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -58,6 +59,22 @@ public class PortfolioDbContext : DbContext
             e.Property(u => u.Email).IsRequired().HasMaxLength(200);
             e.HasIndex(u => u.Email).IsUnique();
             e.Property(u => u.PasswordHash).IsRequired().HasMaxLength(500);
+        });
+
+        builder.Entity<SiteProfile>(e =>
+        {
+            e.HasKey(p => p.Id);
+            e.Property(p => p.Name).IsRequired().HasMaxLength(100);
+            e.Property(p => p.Title).IsRequired().HasMaxLength(200);
+            e.Property(p => p.Tagline).IsRequired().HasMaxLength(300);
+            e.Property(p => p.Bio1).IsRequired().HasMaxLength(1000);
+            e.Property(p => p.Bio2).IsRequired().HasMaxLength(1000);
+            e.Property(p => p.GithubUrl).HasMaxLength(300);
+            e.Property(p => p.LinkedinUrl).HasMaxLength(300);
+            e.Property(p => p.Email).HasMaxLength(200);
+            e.Property(p => p.MobileHighlight).HasMaxLength(500);
+            e.Property(p => p.BackendHighlight).HasMaxLength(500);
+            e.Property(p => p.WebHighlight).HasMaxLength(500);
         });
     }
 }

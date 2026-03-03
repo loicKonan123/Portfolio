@@ -22,6 +22,7 @@ public static class DependencyInjection
         services.AddScoped<ISkillRepository, SkillRepository>();
         services.AddScoped<IMessageRepository, MessageRepository>();
         services.AddScoped<IAdminUserRepository, AdminUserRepository>();
+        services.AddScoped<ISiteProfileRepository, SiteProfileRepository>();
 
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IFileStorageService, CloudinaryService>();

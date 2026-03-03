@@ -131,6 +131,23 @@ public static class SeedData
             ctx.Skills.AddRange(skills);
         }
 
+        // Site Profile
+        if (!await ctx.SiteProfiles.AnyAsync())
+        {
+            ctx.SiteProfiles.Add(SiteProfile.Create(
+                name: "Loïc Devalin",
+                title: "Développeur Full-Stack · Flutter · ASP.NET Core · Next.js",
+                tagline: "Je conçois des applications mobiles et web performantes, avec une architecture propre et une expérience utilisateur soignée.",
+                bio1: "Développeur full-stack passionné par la création d'applications qui allient performance, maintenabilité et expérience utilisateur. Je travaille aussi bien côté mobile avec Flutter que côté web avec Next.js, et j'applique les principes de Clean Architecture sur mes backends ASP.NET Core.",
+                bio2: "Mon objectif : livrer des produits robustes et évolutifs, qu'il s'agisse d'un MVP ou d'une application à grande échelle.",
+                githubUrl: "https://github.com/loicKonan123",
+                linkedinUrl: "https://linkedin.com/in/devalinloic",
+                email: "devalinloic@gmail.com",
+                mobileHighlight: "Applications iOS & Android avec Flutter — UI fluide, performances natives.",
+                backendHighlight: "API REST scalables avec ASP.NET Core, Clean Architecture et CQRS.",
+                webHighlight: "Sites et applications modernes avec Next.js, React et Tailwind CSS."));
+        }
+
         await ctx.SaveChangesAsync();
     }
 }
